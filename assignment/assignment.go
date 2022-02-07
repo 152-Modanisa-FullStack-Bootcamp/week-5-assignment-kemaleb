@@ -68,10 +68,14 @@ func WordSplit(arr [2]string) string {
 }
 
 func VariadicSet(i ...interface{}) []interface{} {
-	type Income interface {
-		From()
-		To()
-	}
+	keys := make(map[interface{}]struct{})
+	list := []interface{}{}
 
-	return i
+	for _, v := range i {
+		if _, value := keys[v]; !value {
+			keys[v] = struct{}{}
+			list = append(list, v)
+		}
+	}
+	return list
 }

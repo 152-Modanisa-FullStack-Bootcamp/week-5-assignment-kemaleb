@@ -151,7 +151,9 @@ func TestVariadicSet(t *testing.T) {
 		args args
 		want []interface{}
 	}{
-		// TODO: Add test cases.
+		{"1 test", args{[]interface{}{4, 2, 5, 4, 2, 4}}, []interface{}{4, 2, 5}},
+		{"2 test", args{[]interface{}{"bootcamp", "rocks!", "really", "rocks!"}}, []interface{}{"bootcamp", "rocks!", "really"}},
+		{"3 test", args{[]interface{}{1, uint32(1), "first", 2, uint32(2), "second", 1, uint32(2), "first"}}, []interface{}{1, uint32(1), "first", 2, uint32(2), "second"}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
